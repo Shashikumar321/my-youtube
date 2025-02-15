@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  GOOGLE_API_KEY,
   HAMBURGER_URL,
   USER_ICON_URL,
   YOUTUBE_ICON_URL,
@@ -48,9 +47,9 @@ const Head = () => {
 
   return (
     <div className="fixed top-0 w-full z-10 bg-white grid grid-flow-col justify-between m-2 mt-0 p-2 shadow-sm">
-      <div className="flex col-span-2">
+      <div className="mt-1 flex col-span-4 md:col-span-2">
         <img
-          className="h-6 md:h-8 cursor-pointer hover:bg-gray-100"
+          className="h-6 md:h-8 cursor-pointer hover:bg-gray-100 hidden md:inline-block"
           src={HAMBURGER_URL}
           alt="hamburger_img"
           onClick={handleToggleMenu}
@@ -65,10 +64,10 @@ const Head = () => {
         </a>
       </div>
 
-      <div className="col-span-8 justify-center">
+      <div className="col-span-4 ml-6 md:col-span-8 justify-center">
         <div>
           <input
-            className="border border-gray-200 px-6 w-1/2 h-10 rounded-l-full shadow-sm"
+            className="border border-gray-200 px-6 w-1/2 h-8 md:h-10 rounded-l-full shadow-sm"
             type="text"
             placeholder="Search"
             onFocus={() => setShowSuggestions(true)}
@@ -76,7 +75,7 @@ const Head = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="w-14 h-10 border border-gray-200 bg-gray-100 rounded-r-full">
+          <button className="w-14 h-8 md:h-10 border border-gray-200 bg-gray-100 rounded-r-full">
             🔍
           </button>
         </div>
@@ -96,7 +95,7 @@ const Head = () => {
         )}
       </div>
 
-      <div className="flex col-span-2">
+      <div className="hidden md:inline-block col-span-0 md:col-span-2">
         <img className="h-8" src={USER_ICON_URL} alt="hamburger_img" />
       </div>
     </div>

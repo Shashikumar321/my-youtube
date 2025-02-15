@@ -5,8 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import {
   GOOGLE_API_KEY,
-  YOUTUBE_GET_VIDEO_BY_ID,
-  YOUTUBE_GET_VIDEO_COMMENTS,
+  YOUTUBE_GET_VIDEO_BY_ID
 } from "../utils/constants";
 import LiveChat from "./LiveChat";
 import Scroll from "./Scroll";
@@ -31,30 +30,9 @@ const WatchPage = () => {
     }
   };
 
-  const getVideoComments = async () => {
-    try {
-      const data = await fetch(
-        "https://www.googleapis.com/youtube/v3/commentThreads",
-        {
-          params: {
-            part: "snippet",
-            videoId: searchParams.get("v"),
-            key: GOOGLE_API_KEY,
-            maxResults: 100,
-          },
-        }
-      );
-      const json = await data.json();
-      console.log(json);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     dispatch(closeMenu());
     getVideoDetails();
-    getVideoComments();
   }, []);
 
   return (

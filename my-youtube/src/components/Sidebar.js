@@ -8,7 +8,7 @@ const Sidebar = () => {
     if(!isMenuOpen) return null;
 
     return (
-        <div className="mt-16 col-span-1 p-4 shadow-md">
+        <div className="mt-16 col-span-1 p-4 shadow-md hidden md:inline-block">
             
             <div>
                 <ul>
